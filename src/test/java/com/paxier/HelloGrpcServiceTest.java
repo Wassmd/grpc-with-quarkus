@@ -17,7 +17,7 @@ class HelloGrpcServiceTest {
     @Test
     void testHello() {
         HelloWorldResponse reply = helloWorldService.helloWorld(HelloWorldRequest.newBuilder().setName("Neo").build()).await().atMost(Duration.ofSeconds(5));
-        assertEquals("Hello Neo!", reply.getGreeting());
+        assertEquals("Hello Neo! from Grpc", reply.getGreeting());
     }
 
 }
