@@ -12,13 +12,12 @@ import org.junit.jupiter.api.Test;
 @QuarkusTest
 class HelloGrpcServiceTest {
     @GrpcClient
-    HelloGrpc helloGrpc;
+    HelloWorldService helloWorldService;
 
     @Test
     void testHello() {
-        HelloReply reply = helloGrpc
-                .sayHello(HelloRequest.newBuilder().setName("Neo").build()).await().atMost(Duration.ofSeconds(5));
-        assertEquals("Hello Neo!", reply.getMessage());
+        HelloWorldResponse reply = helloWorldService.helloWorld(HelloWorldRequest.newBuilder().setName("Neo").build()).await().atMost(Duration.ofSeconds(5));
+        assertEquals("Hello Neo!", reply.getGreeting());
     }
 
 }

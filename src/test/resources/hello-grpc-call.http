@@ -1,0 +1,7 @@
+### GET request to example server
+GRPC localhost:9000/toHelloWorld.HelloWorldService/HelloWorld
+content-type: application/json
+
+{
+  "name": "Wasim"
+}

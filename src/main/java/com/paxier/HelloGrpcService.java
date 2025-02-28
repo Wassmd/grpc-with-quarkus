@@ -5,12 +5,10 @@ import io.quarkus.grpc.GrpcService;
 import io.smallrye.mutiny.Uni;
 
 @GrpcService
-public class HelloGrpcService implements HelloGrpc {
-
+public class HelloGrpcService implements HelloWorldService {
     @Override
-    public Uni<HelloReply> sayHello(HelloRequest request) {
+    public Uni<HelloWorldResponse> helloWorld(HelloWorldRequest request) {
         return Uni.createFrom().item("Hello " + request.getName() + "!")
-                .map(msg -> HelloReply.newBuilder().setMessage(msg).build());
+                .map(msg -> HelloWorldResponse.newBuilder().setGreeting(msg).build());
     }
-
 }
